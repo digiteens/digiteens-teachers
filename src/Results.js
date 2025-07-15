@@ -969,29 +969,29 @@ const Results = () => {
           )}
           {risultati.length > 0 && programmate[0].isCompetitive === false && (
             <div>
-  <h3>Punteggio Medio Classe: {calculateMeanScore()}</h3>
-  <div
-    style={{
-      fontSize: "2.5rem",
-      fontWeight: "bold",
-      color: "#388E3C",
-      margin: "10px 0",
-    }}
-  >
-    {(() => {
-      const score = calculateMeanScore();
-      if (score >= -10 && score <= -6) {
-        return "Il tuo rapporto con la tecnologia lascia a desiderare";
-      } else if (score >= -5 && score <= -1) {
-        return "Hai un rapporto discreto con la tecnologia";
-      } else if (score >= 0 && score <= 5) {
-        return "Hai un rapporto molto sano con la tecnologia";
-      } else {
-        return "Punteggio non valido";
-      }
-    })()}
-  </div>
-</div>
+              <h3>Punteggio Medio Classe: {calculateMeanScore()}</h3>
+              <div
+                style={{
+                  fontSize: "2.5rem",
+                  fontWeight: "bold",
+                  color: "#388E3C",
+                  margin: "10px 0",
+                }}
+              >
+                {(() => {
+                  const score = calculateMeanScore();
+                  if (score >= -10 && score <= -6) {
+                    return "Il tuo rapporto con la tecnologia lascia a desiderare";
+                  } else if (score >= -5 && score <= -1) {
+                    return "Hai un rapporto discreto con la tecnologia";
+                  } else if (score >= 0 && score <= 5) {
+                    return "Hai un rapporto molto sano con la tecnologia";
+                  } else {
+                    return "Punteggio non valido";
+                  }
+                })()}
+              </div>
+            </div>
           )}
 
           {/* FINAL RESULTS OF SINGLE STUDENTS - NOT DISPLAYING IT RIGHT NOW
@@ -1064,108 +1064,110 @@ const Results = () => {
             </div>
           ))}*/}
 
-          <Accordion>
-            {domande
-              .slice(0, attivita[0].numQuestions ?? domande.length)
-              .map((doma, index) => (
-                <Accordion.Item eventKey={index} key={index}>
-                  <Accordion.Header>
-                    Domanda {index + 1}: {doma.question}
-                  </Accordion.Header>
-                  <Accordion.Body>
-                    {attivita[0].nome !=
-                      "Brainstorming sul benessere digitale" && (
-                      <div className="mt-3">
-                        <QuestionChart questionIndex={index} />
-                      </div>
-                    )}
+          {attivita[0].nome != "Avventura sul benessere digitale" && (
+            <Accordion>
+              {domande
+                .slice(0, attivita[0].numQuestions ?? domande.length)
+                .map((doma, index) => (
+                  <Accordion.Item eventKey={index} key={index}>
+                    <Accordion.Header>
+                      Domanda {index + 1}: {doma.question}
+                    </Accordion.Header>
+                    <Accordion.Body>
+                      {attivita[0].nome !=
+                        "Brainstorming sul benessere digitale" && (
+                        <div className="mt-3">
+                          <QuestionChart questionIndex={index} />
+                        </div>
+                      )}
 
-                    <br></br>
+                      <br></br>
 
-                    <div className="row">
-                      {risultati != null &&
-                        risultati.map((res, indexx) => (
-                          <div
-                            className="col-md-6 card link-wrapper"
-                            key={indexx}
-                          >
+                      <div className="row">
+                        {risultati != null &&
+                          risultati.map((res, indexx) => (
                             <div
-                              className="card"
-                              style={{
-                                border: "3px solid #000",
-                                borderRadius: "0.5rem",
-                                overflow: "hidden",
-                                width: "100%",
-                                maxWidth: "600px",
-                                margin: "0 auto",
-                              }}
+                              className="col-md-6 card link-wrapper"
+                              key={indexx}
                             >
                               <div
+                                className="card"
                                 style={{
-                                  backgroundImage: `url('${
-                                    getCoverpicUserById(res.user)
-                                      ? getCoverpicUserById(res.user)
-                                      : "https://static.vecteezy.com/system/resources/previews/019/887/657/non_2x/simple-monochrome-lines-background-free-vector.jpg"
-                                  }')`,
-                                  backgroundSize: "cover",
-                                  backgroundPosition: "center",
-                                  height: "170px",
-                                  position: "relative",
+                                  border: "3px solid #000",
+                                  borderRadius: "0.5rem",
+                                  overflow: "hidden",
+                                  width: "100%",
+                                  maxWidth: "600px",
+                                  margin: "0 auto",
                                 }}
                               >
-                                <img
-                                  src={
-                                    getPropicUserById(res.user)
-                                      ? getPropicUserById(res.user)
-                                      : "https://cdn-icons-png.flaticon.com/512/4869/4869736.png"
-                                  }
-                                  alt="Profile"
-                                  style={{
-                                    position: "absolute",
-                                    bottom: "-50px",
-                                    left: "20px",
-                                    width: "130px",
-                                    height: "130px",
-                                  }}
-                                />
-                              </div>
-
-                              <div
-                                className="d-flex align-items-center"
-                                style={{ padding: "10px" }}
-                              >
                                 <div
-                                  className="ms-5"
-                                  style={{ marginLeft: "120px" }}
+                                  style={{
+                                    backgroundImage: `url('${
+                                      getCoverpicUserById(res.user)
+                                        ? getCoverpicUserById(res.user)
+                                        : "https://static.vecteezy.com/system/resources/previews/019/887/657/non_2x/simple-monochrome-lines-background-free-vector.jpg"
+                                    }')`,
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    height: "170px",
+                                    position: "relative",
+                                  }}
                                 >
-                                  <h5
-                                    className="title"
+                                  <img
+                                    src={
+                                      getPropicUserById(res.user)
+                                        ? getPropicUserById(res.user)
+                                        : "https://cdn-icons-png.flaticon.com/512/4869/4869736.png"
+                                    }
+                                    alt="Profile"
                                     style={{
-                                      marginBottom: "20px",
-                                      marginLeft: "100px",
-                                      fontSize: "24px",
-                                      fontWeight: "bold",
+                                      position: "absolute",
+                                      bottom: "-50px",
+                                      left: "20px",
+                                      width: "130px",
+                                      height: "130px",
                                     }}
+                                  />
+                                </div>
+
+                                <div
+                                  className="d-flex align-items-center"
+                                  style={{ padding: "10px" }}
+                                >
+                                  <div
+                                    className="ms-5"
+                                    style={{ marginLeft: "120px" }}
                                   >
-                                    {getNomeUserById(res.user)}{" "}
-                                    {getCognomeUserById(res.user)}
-                                  </h5>
-                                  <p
-                                    className="description"
-                                    style={{ margin: 0 }}
-                                  >
-                                    {res.answers?.[`q${index + 1}`]?.message}
-                                  </p>
+                                    <h5
+                                      className="title"
+                                      style={{
+                                        marginBottom: "20px",
+                                        marginLeft: "100px",
+                                        fontSize: "24px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      {getNomeUserById(res.user)}{" "}
+                                      {getCognomeUserById(res.user)}
+                                    </h5>
+                                    <p
+                                      className="description"
+                                      style={{ margin: 0 }}
+                                    >
+                                      {res.answers?.[`q${index + 1}`]?.message}
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
-                    </div>
-                  </Accordion.Body>
-                </Accordion.Item>
-              ))}
-          </Accordion>
+                          ))}
+                      </div>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                ))}
+            </Accordion>
+          )}
         </div>
       ) : (
         // NOT STORYTELLING

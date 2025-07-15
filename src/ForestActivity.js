@@ -45,7 +45,7 @@ const ForestActivity = ({ activityData, studentsData, resultsData, loading, clas
     return (
       <div className="text-center my-5">
         <Spinner animation="border" />
-        <p>Loading forest data...</p>
+        <p>Caricando dati foresta...</p>
       </div>
     );
   }
@@ -54,7 +54,7 @@ const ForestActivity = ({ activityData, studentsData, resultsData, loading, clas
   if (Object.keys(results).length === 0) {
     return (
       <Alert variant="warning" className="m-3">
-        <strong>No forest data found.</strong> Students haven't planted any trees yet.
+        <strong>Nessun dato della foresta trovato.</strong> Gli studenti non hanno ancora piantato alberi.
       </Alert>
     );
   }
@@ -150,7 +150,7 @@ const ForestActivity = ({ activityData, studentsData, resultsData, loading, clas
             type={type}
             tooltipText={
               <>
-                <div><strong>Date:</strong> {tree.data || "N/A"}</div>
+                <div><strong>Data:</strong> {tree.data || "N/A"}</div>
                 <div><strong>Timer:</strong> {tree.timer} min</div>
               </>
             }
@@ -158,7 +158,7 @@ const ForestActivity = ({ activityData, studentsData, resultsData, loading, clas
           />
         ))
       ) : (
-        <span className="text-muted small">None</span>
+        <span className="text-muted small">Nessuno</span>
       )}
     </div>
   );
@@ -174,8 +174,8 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
             type={type}
             tooltipText={
               <>
-                <div><strong>Student:</strong> {tree.studentName}</div>
-                <div><strong>Date:</strong> {tree.data || "N/A"}</div>
+                <div><strong>Studente:</strong> {tree.studentName}</div>
+                <div><strong>Data:</strong> {tree.data || "N/A"}</div>
                 <div><strong>Timer:</strong> {tree.timer} min</div>
               </>
             }
@@ -183,7 +183,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
           />
         ))
       ) : (
-        <span className="text-muted small">None</span>
+        <span className="text-muted small">Nessuno</span>
       )}
     </div>
   );
@@ -205,7 +205,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
       <Card className="mb-4 border-success">
         <Card.Header className="bg-success text-white">
           <Tree className="me-2" />
-          Class Forest Summary
+          Riepilogo Foresta di Classe
           <Tree className="ms-2" />
         </Card.Header>
         <Card.Body>
@@ -214,7 +214,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
         <div className="d-flex align-items-center">
           <GreenTree size={24} className="me-2" />
                 <div className="ms-2">
-                  <h6 className="mb-0">Healthy Trees</h6>
+                  <h6 className="mb-0">Alberi Sani</h6>
                   <h4 className="mb-0 text-success">{classStats.healthy}</h4>
                 </div>
               </div>
@@ -223,7 +223,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
         <div className="d-flex align-items-center">
           <RedTree size={24} className="me-2" />
                 <div className="ms-2">
-                  <h6 className="mb-0">Damaged Trees</h6>
+                  <h6 className="mb-0">Alberi Danneggiati</h6>
                   <h4 className="mb-0 text-danger">{classStats.damaged}</h4>
                 </div>
               </div>
@@ -232,7 +232,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
               <div className="d-flex align-items-center">
                 <Tree color="#6c757d" size={24} className="me-2" />
                 <div>
-                  <h6 className="mb-0">Total Trees</h6>
+                  <h6 className="mb-0">Alberi Totali</h6>
                   <h4 className="mb-0 text-secondary">{classStats.total}</h4>
                 </div>
               </div>
@@ -266,10 +266,10 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
               </ProgressBar>
               <div className="d-flex justify-content-between">
                 <small className="text-success">
-                  Healthy: {classStats.healthy}
+                  Sani: {classStats.healthy}
                 </small>
                 <small className="text-danger">
-                  Damaged: {classStats.damaged}
+                  Danneggiati: {classStats.damaged}
                 </small>
               </div>
             </div>
@@ -281,7 +281,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
       <Card className="border-primary">
         <Card.Header className="bg-primary text-white">
           <Tree className="me-2" />
-          Students' Forests
+          Foreste degli Studenti
           <Tree className="ms-2" />
         </Card.Header>
         <Card.Body className="p-0">
@@ -319,7 +319,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
                                 </span>
                               </>
                             ) : (
-                              <span className="text-muted">No trees planted</span>
+                              <span className="text-muted">Nessun albero piantato</span>
                             )}
                           </small>
                         </div>
@@ -331,7 +331,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
                           <Row className="mb-3">
                             <Col md={6}>
                               <h6 className="text-success">
-                                Healthy Trees
+                                Alberi Sani
                               </h6>
                               {renderTreeIcons(
   (results[student.id]?.foresta || []).filter(tree => tree.tipoAlbero === "sano"),
@@ -340,7 +340,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
                             </Col>
                             <Col md={6}>
                               <h6 className="text-danger">
-                                Damaged Trees
+                                Alberi Danneggiati
                               </h6>
                               {renderTreeIcons(
   (results[student.id]?.foresta || []).filter(tree => tree.tipoAlbero === "danneggiato"),
@@ -350,7 +350,7 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
                             </Col>
                           </Row>
                           <div className="mt-3">
-                            <h6>Tree Health Distribution</h6>
+                            <h6>Distribuzione alberi Sani</h6>
                             <ProgressBar>
                               <ProgressBar 
                                 variant="success" 
@@ -368,8 +368,8 @@ const renderClassTreeIcons = (trees = [], type = "healthy") => {
                       ) : (
                         <Alert variant="light" className="mb-0 text-center">
                           <Tree color="#6c757d" size={48} className="mb-2" />
-                          <h5>No Trees Planted Yet</h5>
-                          <p className="mb-0">This student hasn't added any trees to their forest.</p>
+                          <h5>Nessun Albero ancora piantato</h5>
+                          <p className="mb-0">Questo studente non ha ancora aggiunto alberi alla sua foresta.</p>
                         </Alert>
                       )}
                     </Accordion.Body>
